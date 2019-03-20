@@ -1,0 +1,68 @@
+.cso-login-input{
+	
+    width:70%;
+	border-radius: 30px;
+	height: 25px;
+}
+
+.cso-login{
+	width : 40%;
+	margin-top:5%;
+	margin-left:30%;
+	background:linear-gradient(45deg, #4d4aec,#b1cfee);
+	 border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 40px; 
+	 box-shadow: 10px 10px 8px #888888;
+}
+
+.btn-btn{
+	background:linear-gradient(45deg, #321456,#345678);
+	border-radius: 25px;
+	width:30%;
+	padding:10px;
+}
+.btn-submit{
+	background:linear-gradient(45deg, #73AD21,#345678);
+    border-radius: 25px;
+	width:30%;
+    padding:10px;
+    margin-left: 60px;
+    margin-bottom: 410px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  th,tr,td{
+  border: 1px solid black;
+  text-align: center;
+  }
+  .table-background{
+    background:linear-gradient(45deg, #d1c0e6,#73b4f5);
+  }
+
+  .investment{
+    background: rgb(235, 221, 221);
+  }
+
+  .investment-container{
+    margin-top:5vh;
+    background: rgb(238, 205, 205);
+    border-radius : 10px;
+    padding:30px;
+    box-shadow: 0px 0px 10px 0px;
+  }
+ 

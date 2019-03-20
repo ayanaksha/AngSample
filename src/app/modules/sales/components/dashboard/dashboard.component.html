@@ -1,0 +1,78 @@
+  <div style = "overflow: auto">
+   <p style ="font-size: 30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Welcome   {{currentUserDetails.username}}
+    </p>
+    <div class = "container-fluid">
+          <div class="row justify-content-center">
+                <div class = "col=12 col-sm-6 col-md-3">
+                    <div class = "investment-container">
+                        <h4 class = "text-center font-weight-bold">Investment Form</h4>
+                        <div *ngIf="errorMsg!=''" class="row">
+                            <h5 style="color: red;" class = "justify-content-center">{{errorMsg}}</h5>
+                        </div>
+                        <form class="dashboard-form" #dashboardForm="ngForm" [style.fontSize.px]="20" ngNativeValidate>
+                            <div class="form-group">  
+			    <label for="exampleFormControlSelect1">Investment Amount/ Month(CHF)</label>
+                            <input type="number"  [(ngModel)] = "salesTransactionDetails.amount" (keyup) = "validationForInputAmount()" name="amount" class="form-control" id="exampleInputEmail1"  placeholder="Enter Amount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Investment Types</label>
+                                <select class = "form-control" [(ngModel)] = "salesTransactionDetails.projectionType" name="projectionType" (change) = "validationForInputAmount()" id="exampleFormControlSelect1" required>
+                                <option value = ""></option>
+                                <option value = "Silver Plan">Silver Plan         Tenure: 9  Months</option>
+                                <option value = "Gold Plan">Gold Plan             Tenure: 18 Months</option>
+                                <option value = "Platinum Plan">Platinum Plan     Tenure: 26 Months</option>
+                                <option value = "Child Education Plan">Child Education Plan  Tenure: 35 Months</option>
+                                <option value = "Pension Plan">Pension Plan       Tenure: 40 Months</option>
+                                </select>
+                            </div>
+                             <div class="table-responsive " style = "margin-top: 3vh">
+                                <table class="table">
+                                    <tr style = "background-color: rgb(126, 188, 230)">
+                                        <th scope="col">Amount Invested </th>
+                                        <th scope="col">Investment Type</th>
+                                        <th scope="col"> Projected Return</th>
+                                    </tr>
+                                    <tr style = "background-color: rgb(238, 205, 205)">
+                                            <td><p>{{salesTransactionDetails.amount}}</p></td>
+                                            <td><p>{{salesTransactionDetails.projectionType}}</p></td>
+                                            <td><p>{{salesTransactionDetails.projectionAmount}}</p></td>
+                                    </tr> 
+                                </table>
+                            </div>
+                            <button type="submit" (click)="submitInvestementPlan()" class="btn btn-primary btn-block justify-content-center">Submit</button>
+                            <button type="reset" class="login-user" (click)="resetInput()" mat-raised-button color="primary" class="btn btn-primary btn-block justify-content-center">Reset</button>
+                        </form>
+                    </div>    
+                </div> 
+          </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h3>Investment Portfolio</h3>
+    <div class="table-responsive " style = "margin-top: 0vh ; height: 600px">
+        <table class="table" style = "overflow: auto">
+            <tr  style = "background-color:  rgb(126, 188, 230)">
+                <th scope = "col">Premium/Month</th>
+                <th scope = "col">Investment Type</th>
+                <th scope = "col">Created Date</th>
+                <th scope = "col">Approval Date</th>
+                <th scope = "col">Projected Return</th>
+                <th scope = "col">Status</th>
+                <th scope = "col">Approver</th>
+                <th scope = "col">Pay</th>
+            </tr>
+            <tr *ngFor="let field of userTransactionDetails; let i = index" >
+                    <td><p>{{field.amount}}</p></td>
+                    <td><p>{{field.projectionType}}</p></td>
+                    <td><p>{{field.createdDate}}</p></td>
+                    <td><p>{{field.approvedDate}}</p></td>
+                    <td><p>{{field.projectionAmount}}</p></td>
+                    <td><p>{{field.status}}</p></td>
+                    <td><p>{{field.approver}}</p></td>
+                    <button type="submit" (click)="paymentForTransaction(field)" [disabled] = "field.status != 'APPROVED'" class="login-user justify-content-center"  mat-raised-button color="primary" style = "margin-top:10px" >Pay</button>
+              </tr> 
+        </table>
+    </div>
+    <br>
+    <br>

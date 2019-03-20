@@ -1,0 +1,32 @@
+﻿<h1 style = "text-align: center;">Relationship Manager Approval</h1>
+
+
+<div class="table-responsive " style = "margin-top: 0vh ; height: 500px">
+  <table class="table" style = "overflow: auto">
+      <tr  style = "background-color:  rgb(126, 188, 230)">
+        <th scope = "col">Select Row</th>
+            <th scope = "col">Projection Type</th>
+          <th scope="col">Projection Amount</th>
+          <th scope="col">Status</th>
+          <th scope="col">Requested By </th>
+          <th scope = "col">Created Date</th>
+      </tr>
+      <tr *ngFor="let field of salesTransactionDetailsArray; let i = index" (click)="setClickedRow($event,i)" [class.active]="i == selectedRow">
+              <td> <input type="checkbox"/></td> 
+              <td><p>{{field.projectionType}}</p></td>
+              <td><p>{{field.projectionAmount}}</p></td>
+              <td><p>{{field.status}}</p></td>
+              <td><p>{{field.requestedBy}}</p></td>
+              <td><p>{{field.createdDate}}</p></td>
+        </tr> 
+  </table>
+ 
+</div>
+<div  style = "text-align: center">
+    <div *ngIf="errorMsg!=''" class="row justify-content-center">
+        <h5 style="color: red;" class = "justify-content-center">{{errorMsg}}</h5>
+    </div>
+  
+    <button type="submit" (click)="approveAllTransaction()" class="login-user justify-content-center"  mat-raised-button color="primary">Approve</button>
+    <button type="submit" (click)="rejectedAllTransaction()" class="login-user justify-content-center" mat-raised-button color="primary">Reject</button>
+</div>

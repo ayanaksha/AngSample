@@ -1,0 +1,24 @@
+
+<form class="login-form" #loginForm="ngForm" (ngSubmit)="loginUser()" [style.fontSize.px]="20" ngNativeValidate >
+    <div class="login-block">
+            <div *ngIf="errorMsg!=''" class="row">
+                <h5 style="color: red;" class = "justify-content-center">{{errorMsg}}</h5>
+            </div>
+        <div class="row">
+            <h3>Login User</h3>
+        </div>
+        <div class="row">
+            <mat-form-field class="login-input-full-width">
+                <input class="userEmailId" matInput placeholder="User Email Id " [(ngModel)]="newUser.userEmailId" name="userEmailId" id="userEmailId" required minlength="5" maxlength="100" #userId="ngModel" required>
+            </mat-form-field>
+            <mat-form-field class="login-input-full-width">
+                    <input class="inputPass" matInput placeholder="Password" type="password" [(ngModel)]="newUser.password" name="password" id="password" required>
+            </mat-form-field>
+        </div>
+ 
+        <div class="row">
+            <button class="login-user" mat-raised-button color="primary" type="submit">Login</button> &nbsp;
+            <button class="register-button" mat-raised-button color="primary" [routerLink]="['/register']">Register</button>
+        </div>
+    </div>
+</form>

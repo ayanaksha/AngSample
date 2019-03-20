@@ -1,0 +1,43 @@
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  th,tr,td {
+  border: 1px solid black;
+  text-align: center;
+  }
+
+  .table-background {
+    background:linear-gradient(45deg, #d1c0e6,#73b4f5);
+  }
+
+  .btn-submit {
+    background:linear-gradient(45deg, #73AD21,#345678);
+    border-radius: 25px;
+    width:30%;
+    padding:10px;
+    margin-left: 60px;
+    margin-bottom: 410px;
+  }
+  
+  .btn-button {
+      background: #73b4f5;
+      border-radius: 10px;
+  }
+
+  .table tr.active td {
+    background-color:#123456 !important;
+    color: white;
+  }

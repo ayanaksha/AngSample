@@ -1,0 +1,37 @@
+<form class="register-form" #registerForm="ngForm" (ngSubmit)="registerSalesUser()" [style.fontSize.px]="20" ngNativeValidate>
+    <div class="register-block">
+        <div>
+            <h3>Register User</h3>
+        </div>
+        <div class="row">
+            <mat-form-field class="register-input-full-width">
+                <input id="username" matInput placeholder="Username" [(ngModel)]="newUser.username" name="username" required>
+            </mat-form-field>
+            <mat-form-field class="register-input-full-width">
+                <input id="phone" matInput placeholder="Mobile Number" [(ngModel)]="newUser.phone" name="phone" required>
+            </mat-form-field>
+            <mat-form-field class="register-input-full-width">
+                <input matInput placeholder="Email Id" [(ngModel)]="newUser.userEmailId" name="userEmailId" id="userEmailId" #userId="ngModel" required>
+            </mat-form-field>
+            <mat-form-field class="register-input-full-width">
+                <input matInput placeholder="Password" type="password" [(ngModel)]="newUser.password" name="password" id="password" required>
+            </mat-form-field>
+           
+            <label for="exampleFormControlSelect1">Location</label>
+                <select class="form-control" [(ngModel)] = "newUser.location" placeholder=" Select City" name="location" id="location" required>
+                  <option value = "Kolkata">Kolkata</option>
+                  <option value = "Bangalore">Bangalore</option>
+                  <option value = "Chennai">Chennai</option>
+                  <option value = "Pune">Pune</option>
+                  <option value = "Hyderabad">Hyderabad</option>
+                </select>
+            
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <button class="register-user" mat-raised-button color="primary" type="submit" >Register</button>&nbsp;
+            <button mat-raised-button color="primary" (click)="resetInput()">Clear</button>
+        </div>
+    </div>
+</form>
